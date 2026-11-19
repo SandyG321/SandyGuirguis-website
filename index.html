@@ -60,7 +60,7 @@ footer{padding:22px 0;border-top:1px solid var(--line);font-size:9px;letter-spac
 </div></div></section>
 <section id="portfolio"><div class="wrap"><div class="heading"><div><div class="eyebrow">03 / Full portfolio</div><h2>Portfolio · 2026</h2></div><p class="note">The cover is displayed on its own. From page 2 onward, the portfolio opens as facing-page spreads.</p></div>
 <div class="flipbook" id="portfolioViewer" aria-label="Portfolio PDF spread viewer"><div class="flipbook-toolbar"><button class="flip-btn" id="prevPage" type="button" aria-label="Previous spread">← Previous</button><span id="pageStatus">Loading portfolio…</span><button class="flip-btn" id="nextPage" type="button" aria-label="Next spread">Next →</button><div class="flipbook-controls"><button class="flip-btn" id="zoomOut" type="button" aria-label="Zoom out">−</button><span class="zoom-level" id="zoomLevel" aria-live="polite">100%</span><button class="flip-btn" id="zoomIn" type="button" aria-label="Zoom in">+</button><button class="flip-btn" id="fullscreenButton" type="button" aria-label="Open portfolio in full screen">Full screen</button></div></div><div class="spread" id="spread"><canvas id="leftPage" aria-label="Left portfolio page"></canvas><div class="page-gutter" id="pageGutter"></div><canvas id="rightPage" aria-label="Right portfolio page"></canvas></div><div class="flipbook-bottom"><span>Use the arrows to turn pages</span></div></div>
-<div class="portfolio-actions"><a class="btn" href="Sandy_Guirguis_Portfolio.pdf" download>Download portfolio</a></div></div></section>
+<div class="portfolio-actions"><a class="btn" id="openPortfolio" href="PORTFOLIO.pdf" target="_blank" rel="noopener">Open full PDF ↗</a><a class="btn" id="downloadPortfolio" href="PORTFOLIO.pdf" download>Download portfolio</a></div></div></section>
 <section id="resume"><div class="wrap"><div class="eyebrow">04 / Resume</div><div class="resume-row"><div><h3>Resume · Architecture & Construction</h3><p>Architectural technology, project coordination, construction documentation and contract-administration support.</p></div><div class="buttons" style="margin:0"><a class="btn dark" href="Sandy_Guirguis_Resume.pdf" target="_blank" rel="noopener">View resume ↗</a><a class="btn" href="Sandy_Guirguis_Resume.pdf" download>Download resume</a></div></div></div></section>
 <section id="contact"><div class="wrap contact"><div><div class="eyebrow">05 / Contact</div><h2>Let’s connect.</h2></div><div class="contact-info"><p>I’m open to opportunities with architecture and construction firms, including Architectural Technologist, Project Coordinator and Contract Coordinator positions. Feel free to reach out to discuss my portfolio and experience.</p><a href="mailto:guirguissandy@gmail.com">guirguissandy@gmail.com</a><a href="tel:+14039936950">+1 (403) 993-6950</a><a href="https://www.linkedin.com/in/sandy-guirguis" target="_blank" rel="noopener">linkedin.com/in/sandy-guirguis ↗</a><span>Calgary, Alberta, Canada</span></div></div></section>
 </main>
@@ -69,11 +69,12 @@ footer{padding:22px 0;border-top:1px solid var(--line);font-size:9px;letter-spac
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <script>
 (function(){
- const pdfPath='Sandy_Guirguis_Portfolio.pdf';
+ const pdfPaths=['PORTFOLIO.pdf'];
  const left=document.getElementById('leftPage'), right=document.getElementById('rightPage');
  const spread=document.getElementById('spread'), status=document.getElementById('pageStatus');
  const prev=document.getElementById('prevPage'), next=document.getElementById('nextPage');
  const viewer=document.getElementById('portfolioViewer');
+ const portfolioLinks=[document.getElementById('openPortfolio'),document.getElementById('downloadPortfolio')];
  const zoomOut=document.getElementById('zoomOut'), zoomIn=document.getElementById('zoomIn');
  const zoomLevel=document.getElementById('zoomLevel'), fullscreenButton=document.getElementById('fullscreenButton');
  if(!window.pdfjsLib){status.textContent='PDF viewer unavailable. Use Open full PDF below.';return;}
@@ -135,7 +136,21 @@ footer{padding:22px 0;border-top:1px solid var(--line);font-size:9px;letter-spac
  });
  window.addEventListener('resize',()=>{if(pdf)show()});
  updateZoomControls();
- pdfjsLib.getDocument({url:pdfPath}).promise.then(v=>{pdf=v;page=1;show()}).catch(e=>{status.textContent='Portfolio PDF could not load. Check that the PDF is beside index.html.';console.error(e)});
+ async function loadPortfolio(){
+   let lastError;
+   for(const path of pdfPaths){
+     try{
+       pdf=await pdfjsLib.getDocument({url:path}).promise;
+       portfolioLinks.forEach(link=>{link.href=path});
+       page=1;
+       show();
+       return;
+     }catch(e){lastError=e}
+   }
+   status.textContent='Portfolio PDF could not load. Upload PORTFOLIO.pdf beside index.html.';
+   console.error('Unable to load the portfolio PDF using either supported filename.',lastError);
+ }
+ loadPortfolio();
 })();
 
 </script>

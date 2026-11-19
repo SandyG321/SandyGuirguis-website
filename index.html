@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Sandy Guirguis — Architectural technology, construction coordination and project documentation portfolio in Calgary, Alberta.">
+<title>Sandy Guirguis</title>
+<style>
+:root{--bg:#f4f2ec;--paper:#fbfaf7;--ink:#252923;--muted:#73776e;--line:#d9d9d0;--sage:#89917a;--deep:#333c33;--serif:Georgia,'Times New Roman',serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:Arial,Helvetica,sans-serif;line-height:1.6}a{color:inherit;text-decoration:none}.wrap{width:min(1160px,90%);margin:auto}
+header{position:sticky;top:0;z-index:20;background:rgba(244,242,236,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+nav{height:72px;display:flex;align-items:center;justify-content:space-between}.brand{font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}.navlinks{display:flex;gap:27px;font-size:10px;letter-spacing:.13em;text-transform:uppercase}.navlinks a:hover,.textlink:hover{color:var(--sage)}
+.menu{display:none;background:none;border:0;font-size:23px}
+.hero{min-height:650px;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:6%;padding:75px 0 90px}.eyebrow{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}h1{font:400 clamp(54px,7.6vw,100px)/.95 var(--serif);letter-spacing:-.055em;margin:25px 0}h1 em{color:var(--sage);font-weight:400}.lead{max-width:480px;color:#62675e;font-size:15px}.buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}.btn{display:inline-block;padding:14px 20px;border:1px solid var(--deep);font-size:10px;letter-spacing:.13em;text-transform:uppercase;transition:.2s}.btn.dark{background:var(--deep);color:#fff}.btn:hover{transform:translateY(-2px);opacity:.82}
+.hero-art{height:460px;position:relative;overflow:hidden;background:#d9dbd1;display:grid;place-items:center}.hero-art:before,.hero-art:after{content:"";position:absolute;border:1px solid #68715f;transform:rotate(-12deg)}.hero-art:before{width:72%;height:78%}.hero-art:after{width:48%;height:95%;transform:rotate(13deg)}.hero-art svg{width:82%;height:82%;z-index:1}.art-note{position:absolute;bottom:18px;left:20px;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:#59604f}
+section{padding:92px 0;border-top:1px solid var(--line)}.heading{display:flex;justify-content:space-between;align-items:end;margin-bottom:42px}.heading h2{font:400 clamp(36px,4.5vw,56px) var(--serif);margin:8px 0 0;letter-spacing:-.035em}.note{max-width:310px;font-size:12px;color:var(--muted)}
+.about{display:grid;grid-template-columns:260px 1fr;gap:7%;align-items:start}.about-photo{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 35%;background:#ddd;border:1px solid var(--line)}.about h3{font:400 31px/1.2 var(--serif);margin:0}.about-copy{max-width:670px;color:#62675e;font-size:14px}.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}.tag{padding:7px 11px;border:1px solid var(--line);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:#555b50}
+.projects{display:grid;grid-template-columns:1fr 1fr;gap:46px 26px}.project{min-width:0}.visual{height:315px;background:#daddd2;display:grid;place-items:center;overflow:hidden;position:relative}.project:nth-child(2) .visual{background:#cfd5ce}.project:nth-child(3) .visual{background:#ded8cc}.project:nth-child(4) .visual{background:#d5d8d3}.visual svg{width:88%;height:88%;stroke:#56614f;stroke-width:1.4;fill:none}.visual img{width:100%;height:100%;object-fit:cover}.project:nth-child(4) .visual img{object-position:center 70%}.visual .hint{position:absolute;bottom:12px;right:15px;font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:#65705e}.project-top{display:flex;justify-content:space-between;margin-top:17px;color:var(--muted);font-size:9px;letter-spacing:.14em;text-transform:uppercase}.project h3{font:400 29px var(--serif);margin:7px 0}.project p{font-size:12px;color:#666b62;max-width:520px;margin:0}.project .textlink{display:inline-block;margin-top:13px;border-bottom:1px solid var(--sage);padding-bottom:3px;font-size:9px;letter-spacing:.13em;text-transform:uppercase}
+.portfolio-box{background:var(--deep);color:white;padding:48px 5%;display:flex;align-items:center;justify-content:space-between;gap:25px}.portfolio-box h2{font:400 38px var(--serif);margin:8px 0}.portfolio-box p{font-size:12px;color:#c8ccc3;margin:0}.portfolio-box .btn{border-color:#fff;white-space:nowrap}.smallnote{font-size:10px;color:var(--muted);margin-top:12px}
+.resume-row{display:flex;justify-content:space-between;align-items:center;padding:22px 0;border-bottom:1px solid var(--line)}.resume-row h3{font:400 25px var(--serif);margin:0}.resume-row p{font-size:12px;color:var(--muted);margin:4px 0 0}
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:10%}.contact h2{font:400 52px var(--serif);margin:0}.contact-info{display:flex;flex-direction:column;gap:12px;color:#62675e;font-size:13px}.contact-info a{width:max-content;max-width:100%;border-bottom:1px solid var(--line);padding-bottom:8px}
+footer{padding:22px 0;border-top:1px solid var(--line);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);display:flex;justify-content:space-between}
+@media(max-width:760px){.about{grid-template-columns:1fr}.about-photo{max-width:260px}nav{height:64px}.menu{display:block}.navlinks{display:none;position:absolute;top:64px;left:0;right:0;padding:20px 5%;background:var(--bg);border-bottom:1px solid var(--line);flex-direction:column;gap:17px}.navlinks.open{display:flex}.hero{grid-template-columns:1fr;padding:60px 0;gap:38px}.hero-art{height:320px}.about,.contact{grid-template-columns:1fr;gap:25px}.projects{grid-template-columns:1fr;gap:35px}.visual{height:270px}.heading{display:block}.note{margin-top:12px}.portfolio-box{display:block;padding:35px 7%}.portfolio-box .btn{margin-top:22px}.resume-row{align-items:flex-start;gap:12px}.resume-row .btn{white-space:nowrap}section{padding:68px 0}footer{gap:12px;flex-wrap:wrap}}
+
+.flipbook{background:#e5e4dc;border:1px solid var(--line);padding:18px;box-shadow:0 18px 45px rgba(38,43,35,.08)}.flipbook-toolbar,.flipbook-bottom{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#60665c}.flipbook-toolbar{display:grid;grid-template-columns:1fr 1fr;align-items:center}.flipbook-toolbar #prevPage{grid-column:1;grid-row:1;justify-self:start}.flipbook-toolbar #nextPage{grid-column:2;grid-row:1;justify-self:end}.flipbook-toolbar #pageStatus{grid-column:1/-1;grid-row:2;text-align:center}.flipbook-controls{grid-column:1/-1;grid-row:3;justify-self:center;display:flex;align-items:center;gap:6px}.zoom-level{min-width:42px;text-align:center}.flip-btn{background:var(--deep);color:#fff;border:0;padding:11px 15px;font:inherit;cursor:pointer}.flip-btn:disabled{opacity:.35;cursor:not-allowed}.spread{display:flex;justify-content:center;align-items:stretch;gap:0;margin:18px auto;max-width:1050px;min-height:220px}.spread canvas{display:block;width:50%;height:auto;max-height:75vh;object-fit:contain;background:white;box-shadow:0 3px 12px rgba(0,0,0,.12)}.spread.cover-mode canvas{width:min(100%,760px)}.spread.zoomed{max-height:75vh;overflow:auto;align-items:flex-start}.spread.zoomed canvas{max-height:none;flex:0 0 auto}.page-gutter{width:1px;background:#b8b9b0;box-shadow:0 0 9px rgba(0,0,0,.18);display:none}.spread:not(.cover-mode) .page-gutter{display:block}.flipbook:fullscreen{width:100vw;height:100vh;padding:14px;display:flex;flex-direction:column;border:0;box-shadow:none}.flipbook:fullscreen .spread{flex:1;min-height:0;width:100%;max-width:none;overflow:auto;align-items:center}.flipbook:fullscreen .spread canvas{max-height:none;flex:0 0 auto}.flipbook:fullscreen .page-gutter{flex:none}.flipbook-bottom{padding-top:5px}.flipbook-bottom a{border-bottom:1px solid var(--sage);padding-bottom:3px}.portfolio-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
+@media(max-width:760px){.flipbook{padding:10px}.spread{margin:12px auto}.spread canvas{max-height:none}.flipbook-toolbar{font-size:8px}.flip-btn{padding:9px 10px}.flipbook-bottom{font-size:8px}}
+</style>
+</head>
+<body>
+<header><nav class="wrap">
+<a class="brand" href="#home">Sandy Guirguis</a>
+<button class="menu" aria-label="Open navigation" onclick="document.querySelector('.navlinks').classList.toggle('open')">☰</button>
+<div class="navlinks"><a href="#about">About</a><a href="#projects">Projects</a><a href="#portfolio">Portfolio</a><a href="#resume">Resume</a><a href="#contact">Contact</a></div>
+</nav></header>
+<main id="home">
+<div class="wrap hero">
+<div>
+<div class="eyebrow">Architecture · Construction Coordination · Calgary, Alberta</div>
+<h1>Building ideas<br>into <em>reality.</em></h1>
+<p class="lead">I’m a recent Architectural Technology graduate from SAIT, with a foundation in architectural design, construction documentation, building systems and project coordination. I’m pursuing opportunities with architecture and construction teams, including Architectural Technologist, Project Coordinator and Contract Coordinator roles.</p>
+<div class="buttons"><a class="btn dark" href="#projects">Explore projects</a><a class="btn" href="#portfolio">View portfolio</a></div>
+</div>
+<div class="hero-art" aria-label="Abstract architectural line drawing">
+<svg viewBox="0 0 420 330" aria-hidden="true"><g stroke="#4e5a49" stroke-width="1.2" fill="none"><path d="M55 260V112l155-76 155 76v148H55Z"/><path d="M55 112h310M210 36v224M112 84v176M308 84v176M55 185h310"/><path d="M83 260V142l127-62 127 62v118"/><path d="M112 142h196M112 211h196"/></g></svg>
+<div class="art-note">Selected academic work · SAIT</div>
+</div>
+</div>
+<section id="about"><div class="wrap about">
+<img class="about-photo" src="sandy-guirguis-portrait.jpg" alt="Portrait of Sandy Guirguis">
+<div class="about-copy"><div class="eyebrow">01 / About</div><h3>Architecture meets project delivery.</h3><p>My academic work has given me experience developing architectural concepts into detailed construction documentation, reviewing drawings, researching building-code requirements and coordinating architectural and structural information. I enjoy the technical problem-solving that helps move a project from design development toward construction.</p><p>I’m interested in contributing to both architectural and construction teams in roles such as Architectural Technologist, Project Coordinator, Contract Coordinator or other project-delivery support positions. I bring strong organization, communication and document-management skills, and I am open to relocation for the right opportunity.</p>
+<div class="tags"><span class="tag">Revit</span><span class="tag">Bluebeam</span><span class="tag">AutoCAD</span><span class="tag">SketchUp</span><span class="tag">Adobe InDesign</span><span class="tag">Construction Documents</span><span class="tag">Drawing Reviews</span><span class="tag">Project Tracking</span><span class="tag">Document Management</span><span class="tag">Building Code Research</span><span class="tag">BIM Coordination</span></div></div>
+</div></section>
+<section id="projects"><div class="wrap">
+<div class="heading"><div><div class="eyebrow">02 / Selected work</div><h2>Academic projects</h2></div><p class="note">Selected academic work demonstrating design development, BIM coordination, drawing production, code research and construction documentation across multiple building types.</p></div>
+<div class="projects">
+<article class="project"><div class="visual"><img src="trinity-core-tower.png" alt="Trinity Core Tower architectural rendering"><span class="hint">Architectural rendering</span></div><div class="project-top"><span>High-rise · Calgary Beltline</span><span>01</span></div><h3>Trinity Core Tower</h3><p>An 11-storey mixed-use high-rise combining commercial, office and residential spaces, with four underground parkade levels and a concrete structural system.</p><a class="textlink" href="#portfolio">View project in PDF ↗</a></article>
+<article class="project"><div class="visual"><img src="riverbend-corner.png" alt="Riverbend Corner architectural rendering"><span class="hint">Architectural rendering</span></div><div class="project-top"><span>Mixed-use · Calgary</span><span>02</span></div><h3>Riverbend Corner</h3><p>A two-storey mixed-use commercial building with four ground-floor retail units and four upper-level office suites. The project included permit documentation, steel construction coordination and code research.</p><a class="textlink" href="#portfolio">View project in PDF ↗</a></article>
+<article class="project"><div class="visual"><img src="curves-and-corner.jpeg" alt="Curves and Corner architectural rendering"><span class="hint">Architectural rendering</span></div><div class="project-top"><span>Mixed-use · Calgary</span><span>03</span></div><h3>Curves and Corner</h3><p>A three-storey mixed-use residential and commercial concept using three curvilinear façade elements to give a simple corner building a distinctive architectural identity.</p><a class="textlink" href="#portfolio">View project in PDF ↗</a></article>
+<article class="project"><div class="visual"><img src="capitol-hill-house.png" alt="Capitol Hill House architectural view"><span class="hint">Architectural rendering</span></div><div class="project-top"><span>Single-family · Capitol Hill</span><span>04</span></div><h3>Capitol Hill House</h3><p>A two-storey wood-frame residence over a concrete basement, with a detached rear-lane garage and spaces planned around everyday family living.</p><a class="textlink" href="#portfolio">View project in PDF ↗</a></article>
+</div></div></section>
+<section id="portfolio"><div class="wrap"><div class="heading"><div><div class="eyebrow">03 / Full portfolio</div><h2>Portfolio · 2026</h2></div><p class="note">The cover is displayed on its own. From page 2 onward, the portfolio opens as facing-page spreads.</p></div>
+<div class="flipbook" id="portfolioViewer" aria-label="Portfolio PDF spread viewer"><div class="flipbook-toolbar"><button class="flip-btn" id="prevPage" type="button" aria-label="Previous spread">← Previous</button><span id="pageStatus">Loading portfolio…</span><button class="flip-btn" id="nextPage" type="button" aria-label="Next spread">Next →</button><div class="flipbook-controls"><button class="flip-btn" id="zoomOut" type="button" aria-label="Zoom out">−</button><span class="zoom-level" id="zoomLevel" aria-live="polite">100%</span><button class="flip-btn" id="zoomIn" type="button" aria-label="Zoom in">+</button><button class="flip-btn" id="fullscreenButton" type="button" aria-label="Open portfolio in full screen">Full screen</button></div></div><div class="spread" id="spread"><canvas id="leftPage" aria-label="Left portfolio page"></canvas><div class="page-gutter" id="pageGutter"></div><canvas id="rightPage" aria-label="Right portfolio page"></canvas></div><div class="flipbook-bottom"><span>Use the arrows to turn pages</span></div></div>
+<div class="portfolio-actions"><a class="btn" href="Sandy_Guirguis_Portfolio.pdf" download>Download portfolio</a></div></div></section>
+<section id="resume"><div class="wrap"><div class="eyebrow">04 / Resume</div><div class="resume-row"><div><h3>Resume · Architecture & Construction</h3><p>Architectural technology, project coordination, construction documentation and contract-administration support.</p></div><div class="buttons" style="margin:0"><a class="btn dark" href="Sandy_Guirguis_Resume.pdf" target="_blank" rel="noopener">View resume ↗</a><a class="btn" href="Sandy_Guirguis_Resume.pdf" download>Download resume</a></div></div></div></section>
+<section id="contact"><div class="wrap contact"><div><div class="eyebrow">05 / Contact</div><h2>Let’s connect.</h2></div><div class="contact-info"><p>I’m open to opportunities with architecture and construction firms, including Architectural Technologist, Project Coordinator and Contract Coordinator positions. Feel free to reach out to discuss my portfolio and experience.</p><a href="mailto:guirguissandy@gmail.com">guirguissandy@gmail.com</a><a href="tel:+14039936950">+1 (403) 993-6950</a><a href="https://www.linkedin.com/in/sandy-guirguis" target="_blank" rel="noopener">linkedin.com/in/sandy-guirguis ↗</a><span>Calgary, Alberta, Canada</span></div></div></section>
+</main>
+<footer class="wrap"><span>© 2026 Sandy Guirguis</span><span>Architecture · Construction · Project Coordination</span></footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script>
+(function(){
+ const pdfPath='Sandy_Guirguis_Portfolio.pdf';
+ const left=document.getElementById('leftPage'), right=document.getElementById('rightPage');
+ const spread=document.getElementById('spread'), status=document.getElementById('pageStatus');
+ const prev=document.getElementById('prevPage'), next=document.getElementById('nextPage');
+ const viewer=document.getElementById('portfolioViewer');
+ const zoomOut=document.getElementById('zoomOut'), zoomIn=document.getElementById('zoomIn');
+ const zoomLevel=document.getElementById('zoomLevel'), fullscreenButton=document.getElementById('fullscreenButton');
+ if(!window.pdfjsLib){status.textContent='PDF viewer unavailable. Use Open full PDF below.';return;}
+ pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+ let pdf=null, page=1, rendering=false, redrawQueued=false, zoom=1;
+ function updateZoomControls(){
+   zoomLevel.textContent=Math.round(zoom*100)+'%';
+   zoomOut.disabled=zoom<=0.5;
+   zoomIn.disabled=zoom>=2;
+ }
+ async function draw(pageNo, canvas){
+   const ctx=canvas.getContext('2d');
+   if(!pageNo || pageNo>pdf.numPages){canvas.width=1;canvas.height=1;canvas.style.display='none';return;}
+   canvas.style.display='block';
+   const p=await pdf.getPage(pageNo);
+   const base=p.getViewport({scale:1});
+   const maxWidth=Math.max(240,(spread.clientWidth-(pageNo===1?0:30))/ (pageNo===1?1:2));
+   const scale=Math.min(maxWidth/base.width, 1.7)*zoom;
+   const viewport=p.getViewport({scale});
+   const dpr=window.devicePixelRatio||1;
+   canvas.width=Math.floor(viewport.width*dpr);canvas.height=Math.floor(viewport.height*dpr);
+   canvas.style.width=(viewport.width)+'px';canvas.style.height=(viewport.height)+'px';
+   await p.render({canvasContext:ctx,viewport:viewport,transform:dpr!==1?[dpr,0,0,dpr,0,0]:null}).promise;
+ }
+ async function show(){
+   if(!pdf)return;
+   if(rendering){redrawQueued=true;return;}
+   rendering=true;
+   try{
+     spread.classList.toggle('zoomed',zoom>1);
+     const cover=page===1;
+     spread.classList.toggle('cover-mode',cover);
+     if(cover){await draw(1,left);right.style.display='none';}
+     else {await draw(page,left);await draw(page+1<=pdf.numPages?page+1:null,right);}
+     status.textContent=cover?'Cover · 1 of '+pdf.numPages:'Pages '+page+'–'+Math.min(page+1,pdf.numPages)+' of '+pdf.numPages;
+     prev.disabled=page===1;next.disabled=cover?pdf.numPages<2:page+2>pdf.numPages;
+   }catch(e){status.textContent='Could not display this page. Use Open full PDF below.';console.error(e)}
+   finally{
+     rendering=false;
+     if(redrawQueued){redrawQueued=false;show();}
+   }
+ }
+ prev.addEventListener('click',()=>{if(page===1)return;page=page===2?1:page-2;show()});
+ next.addEventListener('click',()=>{if(page===1)page=2;else page+=2;if(page>pdf.numPages)page=Math.max(1,pdf.numPages-(pdf.numPages%2===0?1:0));show()});
+ zoomOut.addEventListener('click',()=>{zoom=Math.max(0.5,zoom-0.25);updateZoomControls();show()});
+ zoomIn.addEventListener('click',()=>{zoom=Math.min(2,zoom+0.25);updateZoomControls();show()});
+ fullscreenButton.addEventListener('click',async()=>{
+   try{
+     if(document.fullscreenElement){await document.exitFullscreen();}
+     else if(viewer.requestFullscreen){await viewer.requestFullscreen();}
+     else{status.textContent='Full screen is not supported by this browser.';}
+   }catch(e){status.textContent='Could not change full screen mode.';console.error(e);}
+ });
+ document.addEventListener('fullscreenchange',()=>{
+   const isFullscreen=document.fullscreenElement===viewer;
+   fullscreenButton.textContent=isFullscreen?'Exit full screen':'Full screen';
+   fullscreenButton.setAttribute('aria-label',isFullscreen?'Exit full screen':'Open portfolio in full screen');
+   if(pdf)show();
+ });
+ window.addEventListener('resize',()=>{if(pdf)show()});
+ updateZoomControls();
+ pdfjsLib.getDocument({url:pdfPath}).promise.then(v=>{pdf=v;page=1;show()}).catch(e=>{status.textContent='Portfolio PDF could not load. Check that the PDF is beside index.html.';console.error(e)});
+})();
+
+</script>
+</body></html>
